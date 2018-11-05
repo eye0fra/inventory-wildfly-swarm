@@ -24,7 +24,7 @@ pipeline {
         script {
           openshift.withCluster() {
             def dc = openshift.selector("dc", "inventory")
-            dc.rollout().latest()
+            // not necessary due trigger image on the dc // dc.rollout().latest()
             dc.rollout().status()
           }
         }
